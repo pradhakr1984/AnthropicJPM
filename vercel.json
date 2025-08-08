@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "jpmorgan_claude_pitch.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/jpmorgan_claude_pitch.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/jpmorgan_claude_pitch.html"
+    }
+  ]
+}
