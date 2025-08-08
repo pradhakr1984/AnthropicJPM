@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude for JPMorgan Chase - Strategic Partnership</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --jpmorgan-blue: #0066CC;
+            --jpmorgan-dark-blue: #003366;
+            --jpmorgan-brown: #8B4513;
+            --jpmorgan-light-brown: #D2B48C;
+            --jpmorgan-gray: #F5F5F5;
+            --jpmorgan-dark-gray: #333333;
+            --jpmorgan-white: #FFFFFF;
+            --accent-gold: #FFD700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--jpmorgan-dark-gray);
+            background: var(--jpmorgan-white);
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--jpmorgan-gray);
+        }
+        
+        .slide-header {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--jpmorgan-blue);
+            letter-spacing: -0.5px;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, var(--jpmorgan-dark-blue) 0%, var(--jpmorgan-blue) 100%);
+            color: var(--jpmorgan-white);
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        
+        .title-slide .subtitle {
+            font-size: 1.8em;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+        
+        .title-slide .meta {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+        
+        .slide h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            color: var(--jpmorgan-blue);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .slide h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--jpmorgan-brown);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .slide h4 {
+            font-size: 1.4em;
+            color: var(--jpmorgan-dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .slide p, .slide li {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--jpmorgan-gray) 0%, var(--jpmorgan-light-brown) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 6px solid var(--jpmorgan-blue);
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: var(--jpmorgan-white);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--jpmorgan-gray);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.15);
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--jpmorgan-blue);
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.95em;
+            color: var(--jpmorgan-dark-gray);
+            font-weight: 500;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 1.1em;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-table th {
+            background: var(--jpmorgan-blue);
+            color: var(--jpmorgan-white);
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .pricing-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--jpmorgan-gray);
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .pricing-table tr:hover {
+            background: rgba(0, 102, 204, 0.05);
+        }
+        
+        .value-prop {
+            background: linear-gradient(135deg, var(--jpmorgan-blue) 0%, var(--jpmorgan-dark-blue) 100%);
+            color: var(--jpmorgan-white);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .value-prop h3 {
+            color: var(--jpmorgan-white);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .value-prop p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background: var(--jpmorgan-blue);
+            border-radius: 50%;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .cta-section {
+            background: var(--jpmorgan-brown);
+            color: var(--jpmorgan-white);
+            text-align: center;
+            padding: 60px 40px;
+        }
+        
+        .cta-section h2 {
+            color: var(--jpmorgan-white);
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--jpmorgan-white);
+            color: var(--jpmorgan-blue);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--jpmorgan-blue);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+            
+            .title-slide h1 {
+                font-size: 2.8em;
+            }
+            
+            .slide h2 {
+                font-size: 2.2em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Title Slide -->
+    <div class="slide title-slide">
+        <h1>Claude for JPMorganChase</h1>
+        <div class="subtitle">Enhancing AI Intelligence Across the Enterprise</div>
+        <div class="meta">
+            Strategic Partnership Presentation<br>
+            Prepared for Jonathan Pelosi<br>
+            Anthropic | 2025
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Executive Summary</h2>
+        <div class="value-prop">
+            <h3>Accelerating JPMorgan's AI Leadership</h3>
+            <p>Claude as a specialized AI reasoning engine that enhances your existing $18B technology ecosystem, addressing critical capability gaps to deliver measurable productivity gains and competitive advantages.</p>
+        </div>
+        
+        <div class="stat-grid">
+            <div class="stat-card">
+                <span class="stat-number">400+</span>
+                <div class="stat-label">AI Use Cases in Production</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">200K+</span>
+                <div class="stat-label">Employees Using GenAI</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">$2.5B</span>
+                <div class="stat-label">Target AI Business Value</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">30-50%</span>
+                <div class="stat-label">Potential Productivity Gains</div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h4>Strategic Positioning</h4>
+            <p><strong>"Claude doesn't replace your AI investments—it makes them smarter."</strong> Claude serves as the specialized reasoning engine that handles complex financial analysis, regulatory interpretation, and mission-critical decision support that general-purpose models can't match.</p>
+        </div>
+    </div>
+
+    <!-- Division Strategy -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Division-by-Division Business Value</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Asset & Wealth Management</h3>
+                <h4>Enhanced Client Advisory & Research</h4>
+                <p><strong>Current Challenge:</strong> Advisors need faster, deeper client insights during market volatility</p>
+                <p><strong>Claude Solution:</strong> 100K context window enables comprehensive portfolio analysis</p>
+                <ul class="feature-list">
+                    <li>2,000 advisors, portfolio managers, research analysts</li>
+                    <li>95% faster information retrieval (proven with existing AI)</li>
+                    <li>50% increase in client capacity potential</li>
+                    <li>Enhanced integration with existing "Coach AI" infrastructure</li>
+                </ul>
+                <div class="stat-card">
+                    <span class="stat-number">$50M+</span>
+                    <div class="stat-label">Value: Based on 20% revenue increase already achieved with AI tools</div>
+                </div>
+            </div>
+            <div>
+                <h3>Corporate & Investment Banking</h3>
+                <h4>Accelerated Deal Analysis</h4>
+                <p><strong>Current Challenge:</strong> Deal teams spend hours analyzing complex transaction documents</p>
+                <p><strong>Claude Solution:</strong> Rapid due diligence and comprehensive document analysis</p>
+                <ul class="feature-list">
+                    <li>1,500 investment bankers, analysts, lawyers</li>
+                    <li>70% reduction in document review time</li>
+                    <li>Faster deal closure and client response</li>
+                    <li>Integration with Athena (JPM's trading & risk platform)</li>
+                </ul>
+                <div class="stat-card">
+                    <span class="stat-number">$75M+</span>
+                    <div class="stat-label">Value: From faster deal execution and increased banker capacity</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="two-column" style="margin-top: 40px;">
+            <div>
+                <h3>Risk Management & Compliance</h3>
+                <h4>Intelligent Regulatory Guidance</h4>
+                <p><strong>Current Challenge:</strong> Growing regulatory complexity requires expert-level interpretation</p>
+                <p><strong>Claude Solution:</strong> Constitutional AI for compliant, explainable guidance</p>
+                <ul class="feature-list">
+                    <li>1,000 risk managers, compliance officers</li>
+                    <li>Real-time regulatory interpretation</li>
+                    <li>Audit trail capabilities for governance</li>
+                    <li>Reduced compliance violations and costs</li>
+                </ul>
+                <div class="stat-card">
+                    <span class="stat-number">$25M+</span>
+                    <div class="stat-label">Value: Cost avoidance from compliance efficiency and risk reduction</div>
+                </div>
+            </div>
+            <div>
+                <h3>Consumer & Community Banking</h3>
+                <h4>Operational Excellence</h4>
+                <p><strong>Current Challenge:</strong> Customer service and operations need intelligent automation</p>
+                <p><strong>Claude Solution:</strong> Advanced query resolution and process automation</p>
+                <ul class="feature-list">
+                    <li>2,000 customer service reps, operations staff</li>
+                    <li>Complex customer issue resolution</li>
+                    <li>25% operational efficiency improvement (proven track record)</li>
+                    <li>Enhanced customer satisfaction scores</li>
+                </ul>
+                <div class="stat-card">
+                    <span class="stat-number">$40M+</span>
+                    <div class="stat-label">Value: Based on documented operational cost savings achieved through AI</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Methodology & Platform Context -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Business Value Methodology & Platform Integration</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Value Calculation Methodology</h3>
+                <div class="highlight-box">
+                    <h4>Based on JPMorgan's Proven AI Results</h4>
+                    <ul class="feature-list">
+                        <li><strong>AWM:</strong> $50M+ based on documented 20% sales increase from AI advisor tools</li>
+                        <li><strong>CIB:</strong> $75M+ from 50% transaction volume increase with AI-augmented operations</li>
+                        <li><strong>CCB:</strong> $40M+ from 25% operational efficiency gains already achieved</li>
+                        <li><strong>Risk:</strong> $25M+ from cost avoidance and compliance improvements</li>
+                    </ul>
+                </div>
+                
+                <h4>Conservative Assumptions</h4>
+                <ul class="feature-list">
+                    <li>Claude delivers 30-50% of current AI productivity gains</li>
+                    <li>Focused on documented, measurable improvements</li>
+                    <li>Based on JPM's own reported $1.5B in current AI value</li>
+                    <li>Excludes potential revenue upside from new capabilities</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Platform Integration Context</h3>
+                
+                <h4>Athena Platform</h4>
+                <p><strong>JPMorgan's proprietary trading and risk management system</strong></p>
+                <ul class="feature-list">
+                    <li>Used by Markets division for trading operations</li>
+                    <li>Handles risk calculations and trade processing</li>
+                    <li>Claude would integrate via API for document analysis and decision support</li>
+                </ul>
+                
+                <h4>OmniAI Platform</h4>
+                <p><strong>JPMorgan's internal AI/ML development and deployment platform</strong></p>
+                <ul class="feature-list">
+                    <li>Accelerates model development across the bank</li>
+                    <li>Provides approved data sources and governance tools</li>
+                    <li>Claude would complement as reasoning engine for complex analysis</li>
+                </ul>
+                
+                <h4>Coach AI</h4>
+                <p><strong>Existing AI assistant in Asset & Wealth Management</strong></p>
+                <ul class="feature-list">
+                    <li>Already delivering 95% faster information retrieval</li>
+                    <li>Proven success with advisor productivity</li>
+                    <li>Claude would enhance with deeper reasoning capabilities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Strategy -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Pricing Strategy: Two Approaches</h2>
+        
+        <h3>Approach 1: Tiered Enterprise Access Model</h3>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Price Per User/Year</th>
+                    <th>Capabilities</th>
+                    <th>Target Users</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Enhanced Reasoning</strong></td>
+                    <td>$3,000 - $4,000</td>
+                    <td>Standard Claude access, limited context, basic integration</td>
+                    <td>Consumer Banking, basic AWM</td>
+                </tr>
+                <tr>
+                    <td><strong>Advanced Analytics</strong></td>
+                    <td>$6,000 - $8,000</td>
+                    <td>Full 100K context, advanced reasoning, document analysis</td>
+                    <td>Investment Banking, sophisticated AWM</td>
+                </tr>
+                <tr>
+                    <td><strong>Compliance Premium</strong></td>
+                    <td>$8,000 - $12,000</td>
+                    <td>Constitutional AI, audit trails, regulatory interpretation</td>
+                    <td>Risk Management, Compliance divisions</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="highlight-box">
+            <h4>Additional Revenue Streams</h4>
+            <p><strong>Document Processing:</strong> $50-200 per complex document analysis</p>
+            <p><strong>High-Volume Queries:</strong> Tiered token pricing starting at $12/1M tokens</p>
+            <p><strong>Custom Model Services:</strong> $1-3M annually for JPM-specific fine-tuning</p>
+        </div>
+    </div>
+
+    <!-- Value-Based Pricing -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Approach 2: Value-Aligned Partnership Model</h2>
+        
+        <div class="value-prop">
+            <h3>Shared Success Framework</h3>
+            <p>Anthropic's compensation directly tied to documented productivity improvements and business value delivered to JPMorgan</p>
+        </div>
+        
+        <div class="two-column">
+            <div>
+                <h3>Value Creation Metrics</h3>
+                <ul class="feature-list">
+                    <li><strong>Time Savings:</strong> Hours saved per employee per week</li>
+                    <li><strong>Process Acceleration:</strong> Reduction in document processing time</li>
+                    <li><strong>Revenue Enhancement:</strong> Faster deal closure, improved client service</li>
+                    <li><strong>Cost Avoidance:</strong> Reduced manual labor, fewer errors</li>
+                    <li><strong>Risk Mitigation:</strong> Improved compliance, faster risk assessment</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Partnership Structure</h3>
+                <div class="stat-card" style="margin-bottom: 20px;">
+                    <span class="stat-number">5-10%</span>
+                    <div class="stat-label">of Measured Productivity Value</div>
+                </div>
+                <p><strong>Conservative Example:</strong></p>
+                <p>If Claude delivers $100M in annual value to JPMorgan:</p>
+                <ul class="feature-list">
+                    <li>Anthropic fee: $5-10M annually</li>
+                    <li>JPMorgan retains: $90-95M in value</li>
+                    <li>True win-win alignment</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h4>Baseline + Performance Model</h4>
+            <p><strong>Base Platform Fee:</strong> $5-8M annually for enterprise access and support</p>
+            <p><strong>Performance Component:</strong> Additional 2-5% of documented value above agreed baseline</p>
+            <p><strong>Risk Sharing:</strong> Fees adjust based on actual measured performance</p>
+        </div>
+    </div>
+
+    <!-- Implementation Roadmap -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Implementation Roadmap (2026-2028)</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>Phase 1: Proof of Concept (Q1-Q2 2026)</h4>
+                    <p>AWM Pilot: 500 advisors focusing on client research and market analysis</p>
+                    <p>CIB Limited: 200 investment bankers for deal document analysis</p>
+                    <p><strong>Success Metrics:</strong> 30% faster research, 50% reduction in document review time</p>
+                    <p><strong>Expected Business Value:</strong> $15-25M annually</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>Phase 2: Division Rollout (Q3 2026-Q2 2027)</h4>
+                    <p>Scale AWM to full 2,000 users</p>
+                    <p>Full CIB deployment (1,500 users)</p>
+                    <p>Risk & Compliance pilot (300 users)</p>
+                    <p>Consumer Banking integration (1,000 users)</p>
+                    <p><strong>Expected Business Value:</strong> $75-125M annually</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>Phase 3: Enterprise Integration (Q3 2027-2028)</h4>
+                    <p>Complete multi-division deployment</p>
+                    <p>Customer-facing applications development</p>
+                    <p>Global rollout (EMEA, APAC)</p>
+                    <p>Advanced custom capabilities</p>
+                    <p><strong>Expected Business Value:</strong> $150-250M annually</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Integration Strategy -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Integration Strategy: Complement, Don't Compete</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Technical Integration Points</h3>
+                <ul class="feature-list">
+                    <li><strong>API Layer:</strong> Claude as reasoning service called by existing LLM Suite</li>
+                    <li><strong>Workflow Embedding:</strong> Integrate into Athena, OmniAI, customer service platforms</li>
+                    <li><strong>Data Security:</strong> Deploy via Snowflake partnership within JPM's VPC</li>
+                    <li><strong>Governance:</strong> Constitutional AI aligns with Model Risk Governance framework</li>
+                </ul>
+                
+                <h3>Key Success Factors</h3>
+                <ul class="feature-list">
+                    <li>Partnership language: "AI capability enhancement"</li>
+                    <li>Proven integration via Snowflake partnership</li>
+                    <li>Compliance focus with Constitutional AI</li>
+                    <li>Clear ROI demonstration</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Conservative ROI Projections</h3>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Business Value</th>
+                            <th>Anthropic Fee (7.5% avg)</th>
+                            <th>Net JPM Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026</td>
+                            <td>$20M</td>
+                            <td>$1.5M</td>
+                            <td>$18.5M</td>
+                        </tr>
+                        <tr>
+                            <td>2027</td>
+                            <td>$100M</td>
+                            <td>$7.5M</td>
+                            <td>$92.5M</td>
+                        </tr>
+                        <tr>
+                            <td>2028</td>
+                            <td>$200M</td>
+                            <td>$15M</td>
+                            <td>$185M</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="stat-card" style="margin-top: 30px;">
+                    <span class="stat-number">12:1</span>
+                    <div class="stat-label">ROI Ratio at Scale</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pilot Program -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Why Asset & Wealth Management for Pilot?</h2>
+        
+        <div class="two-column">
+            <div>
+                <h3>Strategic Rationale</h3>
+                <div class="highlight-box">
+                    <h4>Proven AI Success & Executive Champion</h4>
+                    <p><strong>Mary Erdoes (AWM CEO)</strong> has publicly celebrated AI achievements:</p>
+                    <ul class="feature-list">
+                        <li>95% faster information retrieval with existing AI</li>
+                        <li>20% increase in gross sales attributed to AI tools</li>
+                        <li>Strong advocacy for AI expansion across JPMorgan</li>
+                    </ul>
+                </div>
+                
+                <h4>Low Risk, High Impact Environment</h4>
+                <ul class="feature-list">
+                    <li><strong>Existing AI Infrastructure:</strong> Coach AI already in place</li>
+                    <li><strong>Measurable Outcomes:</strong> Clear productivity and revenue metrics</li>
+                    <li><strong>User Readiness:</strong> Advisors already comfortable with AI tools</li>
+                    <li><strong>Regulatory Clarity:</strong> Less complex than trading or compliance use cases</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Pilot Advantages</h3>
+                
+                <h4>Perfect Claude Use Case</h4>
+                <ul class="feature-list">
+                    <li><strong>100K Context Window:</strong> Analyze entire client portfolios + market research</li>
+                    <li><strong>Complex Reasoning:</strong> Synthesize multiple data sources for investment insights</li>
+                    <li><strong>Document Analysis:</strong> Process research reports, market commentary, regulatory filings</li>
+                    <li><strong>Client Communication:</strong> Generate personalized investment narratives</li>
+                </ul>
+                
+                <h4>Success Creates Momentum</h4>
+                <ul class="feature-list">
+                    <li><strong>Internal Advocacy:</strong> Mary Erdoes can champion expansion to other divisions</li>
+                    <li><strong>Reference Case:</strong> Documented success for CIB, Risk, and CCB rollouts</li>
+                    <li><strong>Revenue Impact:</strong> Direct correlation between AI enhancement and client revenue</li>
+                    <li><strong>Competitive Advantage:</strong> Further differentiate JPM's wealth management offering</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="value-prop" style="margin-top: 30px;">
+            <h3>AWM Pilot: Foundation for Enterprise Success</h3>
+            <p>Starting where JPMorgan has already proven AI value, with an executive champion, and clear measurement criteria sets up Claude for demonstrable wins that drive organization-wide adoption.</p>
+        </div>
+    </div>
+
+    <!-- Value Measurement Framework -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Value Measurement Framework</h2>
+        
+        <div class="value-prop">
+            <h3>How We Calculate JPMorgan's Business Value</h3>
+            <p>Transparent, measurable methodology for determining Claude's contribution to productivity and revenue</p>
+        </div>
+        
+        <div class="two-column">
+            <div>
+                <h3>Quantifiable Metrics</h3>
+                
+                <h4>Time Savings (Primary)</h4>
+                <ul class="feature-list">
+                    <li><strong>Baseline Measurement:</strong> Average hours per advisor for research, analysis, and client prep</li>
+                    <li><strong>Claude Impact:</strong> Reduction in time for same quality output</li>
+                    <li><strong>Value Calculation:</strong> Time saved × average advisor hourly cost × number of users</li>
+                    <li><strong>Example:</strong> 5 hours/week saved × $150/hour × 500 advisors = $19.5M annually</li>
+                </ul>
+                
+                <h4>Revenue Attribution</h4>
+                <ul class="feature-list">
+                    <li><strong>Client Capacity:</strong> Additional clients served due to efficiency gains</li>
+                    <li><strong>Deal Velocity:</strong> Faster transaction completion in CIB</li>
+                    <li><strong>Cross-selling:</strong> Better insights leading to additional product sales</li>
+                    <li><strong>Client Retention:</strong> Improved service quality reducing attrition</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Measurement Methodology</h3>
+                
+                <h4>Before/After Comparison</h4>
+                <ul class="feature-list">
+                    <li><strong>Baseline Period:</strong> 3-month pre-implementation measurement</li>
+                    <li><strong>Implementation:</strong> 6-month pilot with monthly tracking</li>
+                    <li><strong>Control Groups:</strong> Similar teams without Claude for comparison</li>
+                    <li><strong>Statistical Validation:</strong> Ensure results are statistically significant</li>
+                </ul>
+                
+                <h4>Joint Measurement Committee</h4>
+                <div class="highlight-box">
+                    <p><strong>JPMorgan & Anthropic Partnership</strong></p>
+                    <ul class="feature-list">
+                        <li>Monthly review of productivity metrics</li>
+                        <li>Agreed-upon calculation methodologies</li>
+                        <li>Independent validation where appropriate</li>
+                        <li>Transparent reporting and documentation</li>
+                    </ul>
+                </div>
+                
+                <h4>Conservative Approach</h4>
+                <ul class="feature-list">
+                    <li>Only count directly attributable improvements</li>
+                    <li>Exclude benefits that can't be clearly measured</li>
+                    <li>Use lower bound of estimated ranges</li>
+                    <li>Account for learning curve and adoption time</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Pilot Program -->
+    <div class="slide">
+        <div class="slide-header">JPMorganChase</div>
+        <h2>Detailed Pilot Program</h2>
+        
+        <div class="value-prop">
+            <h3>6-Month Pilot: Asset & Wealth Management</h3>
+            <p>Prove Claude's value in high-impact, low-risk environment with existing AI champions</p>
+        </div>
+        
+        <div class="two-column">
+            <div>
+                <h3>Pilot Scope</h3>
+                <ul class="feature-list">
+                    <li><strong>Users:</strong> 500 advisors and portfolio managers</li>
+                    <li><strong>Use Cases:</strong> Client research, market analysis, portfolio insights</li>
+                    <li><strong>Integration:</strong> Secure deployment via Snowflake within JPM VPC</li>
+                    <li><strong>Duration:</strong> 6 months with monthly check-ins</li>
+                </ul>
+                
+                <h3>Success Metrics</h3>
+                <ul class="feature-list">
+                    <li>30% reduction in research preparation time</li>
+                    <li>50% faster client portfolio analysis</li>
+                    <li>Measurable improvement in client meeting quality</li>
+                    <li>Increased advisor capacity for client outreach</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Pilot Investment & Expected Returns</h3>
+                <div class="stat-card" style="margin-bottom: 20px;">
+                    <span class="stat-number">$1.5M</span>
+                    <div class="stat-label">6-Month Pilot Investment</div>
+                </div>
+                
+                <div class="stat-card" style="margin-bottom: 20px;">
+                    <span class="stat-number">$8-12M</span>
+                    <div class="stat-label">Expected Annual Business Value</div>
+                </div>
+                
+                <p><strong>Pilot Package Includes:</strong></p>
+                <ul class="feature-list">
+                    <li>Claude access for 500 users</li>
+                    <li>Technical integration support</li>
+                    <li>Training and change management</li>
+                    <li>Monthly performance reviews</li>
+                    <li>Custom compliance configuration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="slide cta-section">
+        <h2>Next Steps</h2>
+        <div class="two-column" style="text-align: left; color: white;">
+            <div>
+                <h3 style="color: white;">Q4 2025 - Q1 2026</h3>
+                <ul class="feature-list" style="color: white;">
+                    <li>Executive presentations to Teresa Heitsenrether (Chief Data & Analytics)</li>
+                    <li>Technical integration workshops with AI infrastructure team</li>
+                    <li>Pilot program proposal with AWM leadership</li>
+                    <li>Security and compliance reviews</li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: white;">Target Timeline</h3>
+                <ul class="feature-list" style="color: white;">
+                    <li><strong>Q1 2026:</strong> Pilot approval and launch</li>
+                    <li><strong>Q3 2026:</strong> Pilot results and full contract negotiation</li>
+                    <li><strong>Q4 2026:</strong> Enterprise contract execution</li>
+                    <li><strong>2027:</strong> Revenue realization begins</li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="cta-button">Schedule Executive Discussion</a>
+    </div>
+</body>
+</html>
