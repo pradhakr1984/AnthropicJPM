@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "jpmorgan_pitch.html",
+      "src": "jpmorgan_anthropic_styled.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/jpmorgan_pitch.html"
+      "dest": "/jpmorgan_anthropic_styled.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/jpmorgan_pitch.html"
+      "dest": "/jpmorgan_anthropic_styled.html"
     }
   ]
 }
